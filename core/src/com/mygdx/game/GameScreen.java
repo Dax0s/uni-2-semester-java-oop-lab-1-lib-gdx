@@ -77,9 +77,11 @@ public class GameScreen implements Screen {
         }
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) && rainMusic.getVolume() > 0.1f) {
-            rainMusic.setVolume(rainMusic.getVolume() - 0.1f);
+            int volume = ((int) (rainMusic.getVolume() * 100)) - 10;
+            rainMusic.setVolume((float) volume / 100.0f);
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && rainMusic.getVolume() < 1) {
-            rainMusic.setVolume(rainMusic.getVolume() + 0.1f);
+            int volume = ((int) (rainMusic.getVolume() * 100)) + 10;
+            rainMusic.setVolume((float) volume / 100.0f);
         }
 
         if (bucket.x < 0)
